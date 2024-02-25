@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 페이지 스크롤을 막습니다. */
+}
+
+.container-xxl {
+    /*  위치 기준점을 잡아 줌  */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*  타운맵을 가운데 정렬  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.town-map {
+    /*  타운맵 이미지 설정  */
+    width: 2000px;
+    height: 100vh;
+    background-image: url("../img_zeldarink/pokemon_town_map.png");
+    background-size: contain;
+    background-repeat: repeat;
+    /*  JS 이벤트에 따른 이동을 위해 position absolute 설정  */
+    position: absolute;
+    /*  상하 정렬은 상단 고정  */
+    top: 0;
+    /*  맵 표시 너비는 커스텀 지정하고 flex 에 따라 여백 중앙정렬  */
+    /*  백그라운드 이동 효과에 적용을 위한 transition 설정  */
+    transition: all 200ms linear;
+}
+.dark-town-map{
+    width: 2000px;
+    height: 100vh;
+    background-image: url("../img_zeldarink/pokemon_town_map_dark.png");
+    background-size: contain;
+    background-repeat: repeat;
+    /*  JS 이벤트에 따른 이동을 위해 position absolute 설정  */
+    position: absolute;
+    /*  상하 정렬은 상단 고정  */
+    top: 0;
+    /*  맵 표시 너비는 커스텀 지정하고 flex 에 따라 여백 중앙정렬  */
+    /*  백그라운드 이동 효과에 적용을 위한 transition 설정  */
+    transition: all 200ms linear;
+}
+
+#user-character {
+    position: absolute;
+    top: 220px;
+    left: 500px;
+    width: 80px;
+    height: 90px;
+    background-size: contain;
+    animation-fill-mode: forwards;
+}
+
+@keyframes forward-step {
+    0% {
+        background-image: url("../img_zeldarink/front_stand.png");
+    }
+    10% {
+        background-image: url("../img_zeldarink/front_walk0.png");
+    }
+    20% {
+        background-image: url("../img_zeldarink/front_walk1.png");
+    }
+    30% {
+        background-image: url("../img_zeldarink/front_walk2.png");
+    }
+    40% {
+        background-image: url("../img_zeldarink/front_walk3.png");
+    }
+    50% {
+        background-image: url("../img_zeldarink/front_walk4.png");
+    }
+    60% {
+        background-image: url("../img_zeldarink/front_walk5.png");
+    }
+    70% {
+        background-image: url("../img_zeldarink/front_walk6.png");
+    }
+    80% {
+        background-image: url("../img_zeldarink/front_walk7.png");
+    }
+    90% {
+        background-image: url("../img_zeldarink/front_walk8.png");
+    }
+    100% {
+        background-image: url("../img_zeldarink/front_walk9.png");
+    }
+}
+
+.walking-forward {
+    animation: forward-step 500ms infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-forward {
+    /*animation: forward-step 500ms infinite 0s;*/
+    animation-play-state: paused;
+    background-image: url("../img_zeldarink/front_stand.png");
+}
+
+@keyframes backward-step {
+    0% {
+        background-image: url("../img_zeldarink/back_stand.png");
+    }
+    10% {
+        background-image: url("../img_zeldarink/back_walk0.png");
+    }
+    20% {
+        background-image: url("../img_zeldarink/back_walk1.png");
+    }
+    30% {
+        background-image: url("../img_zeldarink/back_walk2.png");
+    }
+    40% {
+        background-image: url("../img_zeldarink/back_walk3.png");
+    }
+    50% {
+        background-image: url("../img_zeldarink/back_walk4.png");
+    }
+    60% {
+        background-image: url("../img_zeldarink/back_walk5.png");
+    }
+    70% {
+        background-image: url("../img_zeldarink/back_walk6.png");
+    }
+    80% {
+        background-image: url("../img_zeldarink/back_walk7.png");
+    }
+    90% {
+        background-image: url("../img_zeldarink/back_walk8.png");
+    }
+    100% {
+        background-image: url("../img_zeldarink/back_walk9.png");
+    }
+}
+
+.walking-backward {
+    animation: backward-step 500ms infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-backward {
+    animation-play-state: paused;
+    background-image: url("../img_zeldarink/back_stand.png");
+}
+
+@keyframes left-step {
+    0% {
+        background-image: url("../img_zeldarink/left_stand.png");
+    }
+    10% {
+        background-image: url("../img_zeldarink/left_walk0.png");
+    }
+    20% {
+        background-image: url("../img_zeldarink/left_walk1.png");
+    }
+    30% {
+        background-image: url("../img_zeldarink/left_walk2.png");
+    }
+    40% {
+        background-image: url("../img_zeldarink/left_walk3.png");
+    }
+    50% {
+        background-image: url("../img_zeldarink/left_walk4.png");
+    }
+    60% {
+        background-image: url("../img_zeldarink/left_walk5.png");
+    }
+    70% {
+        background-image: url("../img_zeldarink/left_walk6.png");
+    }
+    80% {
+        background-image: url("../img_zeldarink/left_walk7.png");
+    }
+    90% {
+        background-image: url("../img_zeldarink/left_walk8.png");
+    }
+    100% {
+        background-image: url("../img_zeldarink/left_walk9.png");
+    }
+}
+
+.walking-left {
+    animation: left-step 500ms infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-left {
+    animation-play-state: paused;
+    background-image: url("../img_zeldarink/left_stand.png");
+}
+
+@keyframes right-step {
+    0% {
+        background-image: url("../img_zeldarink/right_stand.png");
+    }
+    10% {
+        background-image: url("../img_zeldarink/right_walk0.png");
+    }
+    20% {
+        background-image: url("../img_zeldarink/right_walk1.png");
+    }
+    30% {
+        background-image: url("../img_zeldarink/right_walk2.png");
+    }
+    40% {
+        background-image: url("../img_zeldarink/right_walk3.png");
+    }
+    50% {
+        background-image: url("../img_zeldarink/right_walk4.png");
+    }
+    60% {
+        background-image: url("../img_zeldarink/right_walk5.png");
+    }
+    70% {
+        background-image: url("../img_zeldarink/right_walk6.png");
+    }
+    80% {
+        background-image: url("../img_zeldarink/right_walk7.png");
+    }
+    90% {
+        background-image: url("../img_zeldarink/right_walk8.png");
+    }
+    100% {
+        background-image: url("../img_zeldarink/right_walk9.png");
+    }
+}
+
+.walking-right {
+    animation: right-step 500ms infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-right {
+    animation-play-state: paused;
+    background-image: url("../img_zeldarink/right_stand.png");
+}
